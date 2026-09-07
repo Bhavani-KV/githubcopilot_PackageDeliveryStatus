@@ -3,6 +3,7 @@
 ## Summary
 Implements a lightweight, zero-dependency client-side **Package Delivery Status Tracker** web application corresponding to Jira Story [KAN-1](https://testcaseenhancer.atlassian.net/browse/KAN-1). 
 
+
 Customers can enter a package tracking number in a responsive web interface to immediately check its real-time delivery status (`Order Received`, `In Transit`, `Out for Delivery`, `Delivered`). The entire solution has been developed and validated through the complete Agentic SDLC pipeline.
 
 ---
