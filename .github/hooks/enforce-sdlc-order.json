@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "node .github/hooks/scripts/check-sdlc-order.js",
+        "timeout": 10
+      }
+    ]
+  }
+}

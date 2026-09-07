@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Delivery Status Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="tracker-container">
+    <header class="tracker-header">
+      <h1>Package Delivery Tracker</h1>
+      <p class="subtitle">Enter your tracking number to check real-time package status</p>
+    </header>
+
+    <section class="tracker-card">
+      <form id="tracking-form" class="tracking-form" novalidate>
+        <div class="form-group">
+          <label for="tracking-input">Tracking Number</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="tracking-input"
+              name="trackingNumber"
+              placeholder="e.g. PKG-1001"
+              autocomplete="off"
+              aria-describedby="sample-hint"
+            />
+            <button type="submit" id="track-btn" class="btn-primary">Track</button>
+          </div>
+          <span id="sample-hint" class="sample-hint">
+            Try sample tracking numbers: <code>PKG-1001</code>, <code>PKG-1002</code>, <code>PKG-1003</code>, <code>PKG-1004</code>
+          </span>
+        </div>
+      </form>
+
+      <!-- Dynamic Feedback & Result Sections with ARIA Live Regions (DR-03) -->
+      <div id="error-container" class="alert-box error-alert hidden" role="alert" aria-live="assertive">
+        <span class="alert-icon" aria-hidden="true">&#9888;</span>
+        <p id="error-message" class="alert-text"></p>
+      </div>
+
+      <div id="result-container" class="result-box hidden" role="status" aria-live="polite">
+        <div class="result-header">
+          <span class="result-label">Tracking Number</span>
+          <span id="result-tracking-num" class="result-value"></span>
+        </div>
+        <div class="result-body">
+          <span class="result-label">Current Status</span>
+          <span id="result-status-badge" class="status-badge"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="trackerService.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
