@@ -24,3 +24,6 @@ The pipeline always produces these root-level artifacts, in this order. Each sta
 
 ## Jira Access
 The `atlassian` MCP server (configured in [.mcp.json](../.mcp.json)) is how the Requirements Agent reads Jira stories (e.g. `KAN-1`). It requires `JIRA_URL`, `JIRA_USERNAME`, and `JIRA_API_TOKEN` environment variables to be set locally.
+
+## Git Branch Safety
+Before making any changes, check the current Git branch. If the current branch is `main`, create and switch to `feature/kan-1-improvements`. If already on a non-main feature branch, continue using it. Never make changes directly on `main`. Do not push unless the user explicitly requests it.
