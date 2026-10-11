@@ -1,5 +1,7 @@
 # Pull Request: Package Delivery Status Tracker (Jira KAN-1)
 
+**PR Status:** Not created; no GitHub PR URL or identifier is recorded in the repository evidence.
+
 ## Summary
 Implements a lightweight, zero-dependency client-side **Package Delivery Status Tracker** web application corresponding to Jira Story [KAN-1](https://testcaseenhancer.atlassian.net/browse/KAN-1). 
 
@@ -29,7 +31,7 @@ Customers can enter a package tracking number in a responsive web interface to i
 ---
 
 ## Test Evidence
-- **Automated Unit Tests:** 10/10 test assertions passing (`node --test tests/trackerService.test.js`).
+- **Automated Unit Tests:** 10/10 listed test cases passing according to [verification-report.md](verification-report.md) (`node --test tests/trackerService.test.js`).
 - **Acceptance Criteria Verification:**
   - `AC-01` (Order Received lookup for `PKG-1001`): **MET**
   - `AC-02` (Status variety for `PKG-1002`, `PKG-1003`, `PKG-1004`): **MET**

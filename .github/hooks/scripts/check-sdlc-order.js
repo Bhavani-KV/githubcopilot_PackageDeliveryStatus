@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const EDIT_TOOLS = new Set([
+  'apply_patch',
   'create_file',
   'replace_string_in_file',
   'multi_replace_string_in_file',
@@ -53,7 +54,9 @@ process.stdin.on('end', () => {
       toolInput.filePath ||
       (Array.isArray(toolInput.replacements) && toolInput.replacements[0] && toolInput.replacements[0].filePath) ||
       '';
-    if (!targetPath) return allow();
+    if (!targetPath) {
+      return askForConfirmation('Cannot determine the edit target, so implementation-plan approval cannot be verified.');
+    }
 
     const normalized = targetPath.replace(/\\/g, '/');
     const baseName = normalized.split('/').pop().toLowerCase();
@@ -68,9 +71,19 @@ process.stdin.on('end', () => {
         `ahead of the approved SDLC plan. Confirm you intend to write this file now.`
       );
     }
+
+    const implPlan = fs.readFileSync(implPlanPath, 'utf8');
+    const statusMatch = implPlan.match(/^\s*-\s*\*\*Status:\*\*\s*(.+?)\s*$/im);
+    const status = statusMatch ? statusMatch[1] : '';
+    if (!/^(?:Approved|Completed\s*&\s*Approved)(?:\s*\([^)]*\))?$/i.test(status)) {
+      return askForConfirmation(
+        `impl-plan.md does not have an explicitly approved status. Its status must be "Approved" or "Completed & Approved" ` +
+        `before writing application code to "${targetPath}".`
+      );
+    }
+
     return allow();
   } catch (err) {
-    // Never block the session on a hook parsing failure.
-    return allow();
+    return askForConfirmation('Could not verify implementation-plan approval. Confirm before writing application code.');
   }
 });
