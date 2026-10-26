@@ -4,7 +4,9 @@ These are repository-specific working examples, not claims that unconfigured Cop
 
 ## Copilot Modes
 
-The repository explicitly assigns implementation to Copilot Agent mode, following the approved `impl-plan.md` (`.github/copilot-instructions.md`). Example: `Implement TASK-02 from the approved impl-plan.md. Change only its listed deliverables, then stop.` For a review, make the no-edit constraint explicit: `Compare AC-01 through AC-04 with the named source and test files. Do not edit files; return evidence and gaps.` This repository does not configure or document other named modes.
+The repository explicitly assigns implementation to Copilot Agent mode, following the approved `impl-plan.md` (`.github/copilot-instructions.md`). Example: `Implement TASK-02 from the approved impl-plan.md. Change only its listed deliverables, then stop.` For a review, make the no-edit constraint explicit: `Compare AC-01 through AC-04 with the named source and test files. Do not edit files; return evidence and gaps.`
+
+To demonstrate Ask mode in VS Code, ask: `Explain how the Requirements Agent handles unanswered clarification questions. Cite its repository instructions; do not edit files.`
 
 ## Skills and Instructions
 
