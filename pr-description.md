@@ -10,6 +10,7 @@ Implement the lightweight, client-side Package Delivery Status Tracker for Jira 
 - `src/trackerService.js`: In-memory sample records for `PKG-1001` through `PKG-1004`, normalized lookup, and browser/Node.js exports.
 - `tests/trackerService.test.js`: Native Node.js tests for all four statuses, normalized input, unknown and empty input, non-string input, and the sample-key helper.
 - SDLC artifacts: `requirements.md` records KAN-1 and AC-01 through AC-04; `architecture.md`, `design-review.md`, and `impl-plan.md` capture the approved design and plan; `code-review.md` records an APPROVE verdict without blocking changes; `verification-report.md` records the verification evidence. `sdlc-status.md` tracks the stage handoffs.
+- Changelog: KAN-1 adds the client-side tracker for four sample delivery statuses, input validation, accessible result and error feedback, and native Node.js service tests.
 
 ## Test Evidence
 - Automated: [verification-report.md](verification-report.md) records `node --test tests/trackerService.test.js` as passing 10 tests, with 0 failures, 0 skipped, and 0 cancelled. It reports no coverage percentage.
